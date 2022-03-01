@@ -1,0 +1,23 @@
+@import './variables.scss';
+
+@media (min-width: 320px) and (max-width: 599.98px) {
+  #myMainPhoto {
+    max-width: 300px!important;
+  }
+
+  #pixelTitle, #formTitle {
+    font-size: 50px!important;
+  }
+
+  #svgFolder {
+    width: 300px;
+  }
+
+  #modalInExamples {
+    max-width: 90%!important;
+  }
+
+  #examplesDivCarts {
+    width: 100%;
+  }
+}
