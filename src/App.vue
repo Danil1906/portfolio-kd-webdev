@@ -3234,12 +3234,12 @@ body {
   position: relative;
   top: -500px;
   margin-bottom: -500px;
+  font-family: "Pixel Font";
 }
 
 
 .underSquChangeColor {
   background: #005eff;
-  font-family: "Pixel Font";
 }
 
 
