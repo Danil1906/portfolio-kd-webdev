@@ -74,7 +74,7 @@ new Vue({
         }
       }
 
-      if (window.innerWidth > 960) {
+      if (window.innerWidth > 1023) {
         setInterval(updateGradient, 10);
       }
   },

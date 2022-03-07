@@ -21,3 +21,9 @@
     width: 100%;
   }
 }
+
+@media (min-width: 320px) and (max-width: 1023px) {
+  #gradient {
+    background: linear-gradient(90deg, rgba(200,159,9,1) 0%, rgba(51,54,224,1) 38%, rgba(0,237,255,1) 100%);
+  }
+}
