@@ -34,26 +34,31 @@ export default {
   },
   methods: {
     handleScroll() {
-      let gradientSqBlockHeight = this.$refs.sqBlock.getBoundingClientRect().top
-      let windowHeight = window.innerHeight;
-      let unit25 = (windowHeight / 2) / 25
-      let unit50 = (windowHeight / 2) / 50
+      if (window.innerWidth > 1023) {
+        let gradientSqBlockHeight = this.$refs.sqBlock.getBoundingClientRect().top
+        let windowHeight = window.innerHeight;
+        let unit25 = (windowHeight / 2) / 25
+        let unit50 = (windowHeight / 2) / 50
 
-      if (gradientSqBlockHeight < windowHeight + 800) {
-        this.dinamicColorSvg = 'sqBlockBlack'
-      } else {
-        this.dinamicColorSvg = 'sqBlockWhite'
-      }
-
-      if (gradientSqBlockHeight <= windowHeight / 2 && gradientSqBlockHeight > 0) {
-        let px25 = (windowHeight / 2 - gradientSqBlockHeight) / unit25
-        let px50 = (windowHeight / 2 - gradientSqBlockHeight) / unit50
-
-        if (px25 <= 25 && px50 <= 50) {
-          this.for25px = px25
-          this.for50px = px50
+        if (gradientSqBlockHeight < windowHeight + 800) {
+          this.dinamicColorSvg = 'sqBlockBlack'
+        } else {
+          this.dinamicColorSvg = 'sqBlockWhite'
         }
+
+        if (gradientSqBlockHeight <= windowHeight / 2 && gradientSqBlockHeight > 0) {
+          let px25 = (windowHeight / 2 - gradientSqBlockHeight) / unit25
+          let px50 = (windowHeight / 2 - gradientSqBlockHeight) / unit50
+
+          if (px25 <= 25 && px50 <= 50) {
+            this.for25px = px25
+            this.for50px = px50
+          }
+        }
+      } else {
+        console.log('мобилка в низу')
       }
+
 
 
     }

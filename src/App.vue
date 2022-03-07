@@ -3022,47 +3022,52 @@ export default {
       return [per, a]
     },
     handleScroll(event) {
-      let gradientBoxHeight = this.$refs.gradientBox.getBoundingClientRect().top
-      let neonTitleAbout = this.$refs.NeonAboutTitle.getBoundingClientRect().top
-      let windowHeight = window.innerHeight;
-      let sqBlock = this.$refs.sqBlock.getBoundingClientRect().top
+      if (window.innerWidth > 1023) {
+        let gradientBoxHeight = this.$refs.gradientBox.getBoundingClientRect().top
+        let neonTitleAbout = this.$refs.NeonAboutTitle.getBoundingClientRect().top
+        let windowHeight = window.innerHeight;
+        let sqBlock = this.$refs.sqBlock.getBoundingClientRect().top
 
-      let top = event.srcElement.scrollingElement.scrollTop
-      this.scrollPosition = top
+        let top = event.srcElement.scrollingElement.scrollTop
+        this.scrollPosition = top
 
-      if (this.lastScroll > gradientBoxHeight) {
-        this.lastScroll = gradientBoxHeight
-        // Чел идет вниз
-        if (this.shadowY < -20) {
-          this.shadowY += 4
+        if (this.lastScroll > gradientBoxHeight) {
+          this.lastScroll = gradientBoxHeight
+          // Чел идет вниз
+          if (this.shadowY < -20) {
+            this.shadowY += 4
+          }
+
+        } else if (this.lastScroll < gradientBoxHeight) {
+          this.lastScroll = gradientBoxHeight
+          if (this.shadowY > -100) {
+            this.shadowY -= 4
+          }
         }
 
-      } else if (this.lastScroll < gradientBoxHeight) {
-        this.lastScroll = gradientBoxHeight
-        if (this.shadowY > -100) {
-          this.shadowY -= 4
+        if (gradientBoxHeight < 50) {
+          this.classStyleSvg = 'gradientBoxTransition'
+          this.classDinamicColor = 'bgBlack'
+        } else {
+          this.classStyleSvg = 'gradientBoxBefore'
+          this.classDinamicColor = 'bgWhite'
         }
+
+        if (neonTitleAbout < (windowHeight / 2)) {
+          this.localLoading = true
+        } else {
+          this.localLoading = false
+        }
+
+        if (sqBlock < (windowHeight / 2)) {
+          this.transitionUnderSqu = 'underSquChangeColor'
+        } else {
+          this.transitionUnderSqu = ''
+        }
+      } else {
+        console.log('Мобилки')
       }
 
-      if (gradientBoxHeight < 50) {
-        this.classStyleSvg = 'gradientBoxTransition'
-        this.classDinamicColor = 'bgBlack'
-      } else {
-        this.classStyleSvg = 'gradientBoxBefore'
-        this.classDinamicColor = 'bgWhite'
-      }
-
-      if (neonTitleAbout < (windowHeight / 2)) {
-        this.localLoading = true
-      } else {
-        this.localLoading = false
-      }
-
-      if (sqBlock < (windowHeight / 2)) {
-        this.transitionUnderSqu = 'underSquChangeColor'
-      } else {
-        this.transitionUnderSqu = ''
-      }
 
     }
   },
@@ -3145,7 +3150,7 @@ body {
       path {
         opacity: 1 !important;
         transition: 1.5s linear 0s;
-        fill: #000000 !important;
+        fill: #000000;
       }
     }
   }

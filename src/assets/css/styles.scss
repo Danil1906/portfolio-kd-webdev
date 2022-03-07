@@ -2,11 +2,11 @@
 
 @media (min-width: 320px) and (max-width: 599.98px) {
   #myMainPhoto {
-    max-width: 300px!important;
+    max-width: 300px !important;
   }
 
   #pixelTitle, #formTitle {
-    font-size: 50px!important;
+    font-size: 50px !important;
   }
 
   #svgFolder {
@@ -14,7 +14,7 @@
   }
 
   #modalInExamples {
-    max-width: 90%!important;
+    max-width: 90% !important;
   }
 
   #examplesDivCarts {
@@ -24,6 +24,23 @@
 
 @media (min-width: 320px) and (max-width: 1023px) {
   #gradient {
-    background: linear-gradient(90deg, rgba(7,34,162,1) 0%, rgba(0,237,255,1) 100%);
+    background: linear-gradient(90deg, rgba(7, 34, 162, 1) 0%, rgba(0, 237, 255, 1) 100%);
+  }
+
+  #aboutSkillsBlock {
+    background: black !important;
+  }
+
+
+  svg {
+    g {
+      path {
+        fill: #000000 !important;
+      }
+    }
+  }
+
+  .underSqu {
+    background: #005eff!important;
   }
 }
